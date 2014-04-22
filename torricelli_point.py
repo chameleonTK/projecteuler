@@ -33,16 +33,18 @@ for x,y in pairs:
 		data_dict[x] = []
 	data_dict[x].append(y)
 
-ans = set()
+ans = {}
 for a,b in pairs:
 	for c in data_dict[a]:
 		if data_dict.has_key(b) and c in data_dict[b]:
-			tmp = [a,b,c]
-			tmp.sort()
-			ans.add( (tmp[0],tmp[1],tmp[2]))
+			#print b," >> ",data_dict[b]
+			if not ans.has_key(a+b+c):
+				#print a,b,c
+				ans[a+b+c] = True
 
 sum_ = 0
-for p,q,r in ans:
-	sum_ +=p+q+r
+for s in ans.keys():
+	if s < limit:
+		sum_ += s
 
 print sum_
