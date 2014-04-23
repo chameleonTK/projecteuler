@@ -57,6 +57,7 @@ def gen_ignor(prime,add):
 	return ignor_case
 
 add = [1,3,7,9,13,27]
+not_add = [19,21]
 basic_prime = [2,3,5,7,11,13,17,19,23,29]
 ignor_case = gen_ignor(basic_prime,add)
 
@@ -79,6 +80,11 @@ for n in xrange(limit):
 	normal_pass = True
 	for off in add:
 		if not is_prime(n*n+off):
+			normal_pass = False
+			break
+
+	for off in not_add:
+		if is_prime(n*n+off):
 			normal_pass = False
 			break
 
