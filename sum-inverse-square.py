@@ -29,7 +29,8 @@ def factorsInList(n, ps):
 
 def mcm(ns):
     output = 1
-    for el in ns: output = mcm2(output, el)
+    for el in ns: 
+        output = mcm2(output, el)
     return output
 
 def mcm2(a, b):
@@ -84,7 +85,7 @@ limit = 80
 cands = range(2, limit + 1)
 denoms = [x**2 for x in cands]
 mcmTot = mcm(denoms)
-
+print mcmTot
 ## Global variable, used everywhere. The cases 0 and 1 are manually set.
 val = [None, mcmTot] + [mcmTot // d for d in denoms]
 
