@@ -1,4 +1,5 @@
 import random
+import math
 
 def sieve_of_sundaram(n):
     numbers = range(3, n+1, 2)
@@ -47,3 +48,16 @@ def genprime(n):
 
 def isprime(n):
     return miller_rabin(n)   
+
+def factoring(n,neg=False):
+    fac = {}
+    sq = int(math.sqrt(n))+1
+    for i in range(1,sq+1):
+        if n%i==0:
+            fac[i]=True
+            fac[int(n/i)]=True
+            if neg:
+                fac[-1*i]=True
+                fac[int((-1*n)/i)]=True
+
+    return sorted(fac.keys())

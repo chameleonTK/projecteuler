@@ -3,7 +3,7 @@ class parametric_eq:
         self.x = x
         self.y = y
 
-    def print_eq(self,eq):
+    def print_(self,eq):
         flag = True
         s = ""
         for i in range(len(eq)-1,-1,-1):
@@ -30,17 +30,16 @@ class parametric_eq:
         if len(self.x)==0:
             print "all x"
         else:
-            self.print_eq(self.x)
+            self.print_(self.x)
 
     def print_y(self):
         print "y = ",
         if len(self.y)==0:
             print "all y"
         else:
-            self.print_eq(self.y)
+            self.print_(self.y)
 
-    def print_(self):
-        print " == equation =="
+    def print_eq(self):
         self.print_x()
         self.print_y()
 
@@ -53,7 +52,7 @@ class parametric_eq:
             ans += eq[i]*(t**i)
         return ans
 
-    def example(self):
+    def example(self,flag=True):
         ex = set()
         for t in range(10):
             x = self.cal_eq(self.x,t)
@@ -61,6 +60,9 @@ class parametric_eq:
             ex.add( (x,y) )
 
         sort = sorted(ex)
-        for p in sort:
-            print p , " ",
+        if flag:
+            for p in sort:
+                print p , " ",
+            print ""
+        return ex
 
